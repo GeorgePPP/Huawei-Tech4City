@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 flask
 #Diarization
 torch>=2
@@ -11,3 +12,6 @@ ffmpeg
 #CV
 cv2
 mediapipe
+=======
+flask
+>>>>>>> 4ebda4c (Added requirements.txt)
