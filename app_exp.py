@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, Response, request, jsonify
 from utils import generate_report, analyze_meeting, improve_body_language, generate_meeting_report_from_labels
 
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def body_language_improvement():
 
 # Large Language Model (LLM)
 @app.route('/generate_meeting_report', methods=['POST'])
-def generate_meeting_report():
+def generate_meeting_report() -> Response:
     nlp_labels = request.json['labels']
     result = generate_meeting_report_from_labels(nlp_labels)
     return jsonify(result)
