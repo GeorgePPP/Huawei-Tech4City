@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from functions import generate_report, analyze_meeting, improve_body_language, generate_meeting_report_from_labels
 
 app = Flask(__name__)
 
