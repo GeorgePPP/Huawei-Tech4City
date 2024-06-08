@@ -1,13 +1,11 @@
 flask
-#Diarization
-torch>=2
-torchaudio>=2
+torch>=2.0.0
+torchaudio>=2.0.0
 faster-whisper==1.0.0
 transformers
 pandas
 setuptools>=65
 nltk
 ffmpeg
-#CV
 cv2
 mediapipe
