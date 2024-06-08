@@ -7,6 +7,6 @@ pandas
 setuptools>=65
 nltk
 ffmpeg
-cv2
+opencv-python
 mediapipe
 transformers>=4.39
