@@ -7,4 +7,6 @@ From the following link : https://huggingface.co/Minej/bert-base-personality/tre
 
 
 Ensure the files are in the same directory as the main python file.
+
+Speaker Diarization
 This feature will be focusing on speajer diarization using Whisper ASR and Pyannote.
