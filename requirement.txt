@@ -10,4 +10,4 @@ ffmpeg
 opencv-python
 openpyxl
 mediapipe
-transformers>=4.39
+transformers>=4.26
