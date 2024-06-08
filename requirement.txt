@@ -9,3 +9,4 @@ nltk
 ffmpeg
 cv2
 mediapipe
+transformers>=4.39
