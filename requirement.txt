@@ -11,3 +11,4 @@ opencv-python
 openpyxl
 mediapipe
 transformers>=4.26
+!pip install --q git+https://github.com/m-bain/whisperx.git
