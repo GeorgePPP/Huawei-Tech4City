@@ -25,7 +25,7 @@ def format_time(time_in_seconds):
     milliseconds = int((time_in_seconds % 1) * 1000)
     return f"{hours:02d}:{minutes:02d}:{seconds:02d}.{milliseconds:03d}"
 
-cap = cv2.VideoCapture('path/to/your/videos')
+cap = cv2.VideoCapture('C:\\your\\input)
 
 if not cap.isOpened():
     print("Error opening the video file.")
@@ -41,7 +41,7 @@ start_time = 0
 end_time = 0
 segment_count = 0
 
-output_dir = 'path/to/your/output'
+output_dir = 'C:\\your\\output'
 os.makedirs(output_dir, exist_ok=True)
 
 output_path = os.path.join(output_dir, 'output_video.mp4')
@@ -116,7 +116,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                                                                  right_elbow_coordinates)
                         if elbow_triangle > quadrilateral_area:
                             confidence = True
-                    elif (shoulder_triangle + triangle_area) > quadrilateral_area:
+                    elif triangle_area > shoulder_triangle:
                         confidence = True
 
         if confidence != current_confidence:
