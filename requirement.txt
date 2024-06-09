@@ -12,3 +12,5 @@ openpyxl
 mediapipe
 transformers>=4.26
 whisperx
+bitsandbytes
+accelerate
