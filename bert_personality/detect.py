@@ -2,7 +2,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 import torch
 
 # Initialization of the model values
-model = BertForSequenceClassification.from_pretrained("Minebert-base-personality", num_labels=5)
+model = BertForSequenceClassification.from_pretrained("bert-base-personality", num_labels=5)
 tokenizer = BertTokenizer.from_pretrained('bert-base-personality', do_lower_case=True)
 model.config.label2id = {
     "Extroversion": 0,
