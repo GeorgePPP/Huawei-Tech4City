@@ -116,6 +116,12 @@ def classify(transcriptions, video_path, output_dir):
                                                                      right_elbow_coordinates)
                             if elbow_triangle > quadrilateral_area:
                                 confidence = True
+                        elif any(wrist[1] > elbow[1] for wrist in wrist_coordinates for elbow in elbow_coordinates):
+                            if results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_WRIST].visibility < 0.5 or \
+                                    results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].visibility < 0.5:
+                                confidence = True
+                            else:
+                                confidence = True
                         elif triangle_area > shoulder_triangle:
                             confidence = True
 
@@ -160,6 +166,7 @@ def classify(transcriptions, video_path, output_dir):
 
     # Process confidence intervals to match input format
     confidence_results = {}
+
     for speaker, segments in transcriptions.items():
         confidence_score = 0
         count = 0
@@ -170,7 +177,9 @@ def classify(transcriptions, video_path, output_dir):
                 interval_start = interval['start']
                 interval_end = interval['end']
                 if interval_start <= segment_start <= interval_end or interval_start <= segment_end <= interval_end:
-                    confidence_score += 1 if interval['Confidence'] == 'True' else 0
+                    # Use case-insensitive comparison and handle potential boolean values
+                    interval_confidence = str(interval.get('Confidence', interval.get('confidence', ''))).lower()
+                    confidence_score += 1 if interval_confidence == 'true' else 0
                     count += 1
         confidence_results[speaker] = confidence_score / count if count > 0 else 0
 
